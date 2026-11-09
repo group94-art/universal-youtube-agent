@@ -3,8 +3,8 @@
 ## Phase 0 — foundation
 Public repo, secret template, architecture/security docs, FastAPI shell, skill catalog, health endpoint, initial tests.
 
-## Phase 1 — secure core
-Authentication, workspace/channel tenancy, database migrations, audit log, credential vault, permission engine, task/workflow state machine.
+## Phase 1 — secure core (in progress)
+Tenant-aware workspace, membership, channel, task, task-event and audit-event models; PostgreSQL migration; typed settings; deterministic task state machine; CI test workflow. Authentication, membership enforcement, credential vault and production RLS remain required before public deployment.
 
 ## Phase 2 — YouTube connectivity
 OAuth consent/callback, channel discovery, token refresh/revocation, quota-aware reads, analytics sync, approval-required upload workflow.
