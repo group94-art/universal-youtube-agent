@@ -70,7 +70,7 @@ class AgentTask(Base):
     workspace_id: Mapped[UUID] = mapped_column(PGUUID(as_uuid=True), ForeignKey("workspaces.id", ondelete="CASCADE"), nullable=False)
     channel_id: Mapped[UUID | None] = mapped_column(PGUUID(as_uuid=True), ForeignKey("channels.id", ondelete="SET NULL"))
     task_type: Mapped[str] = mapped_column(String(80), nullable=False)
-    status: Mapped[TaskState] = mapped_column(Enum(TaskState, name="task_state"), default=TaskState.QUEUED, nullable=False)
+    status: Mapped[TaskState] = mapped_column(Enum(TaskState, name="task_state", values_callable=lambda enum_cls: [item.value for item in enum_cls]), default=TaskState.QUEUED, nullable=False)
     input_payload: Mapped[dict] = mapped_column(JSON, default=dict, nullable=False)
     output_payload: Mapped[dict | None] = mapped_column(JSON)
     idempotency_key: Mapped[str] = mapped_column(String(128), nullable=False)
